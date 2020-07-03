@@ -10,8 +10,10 @@ export default class WeatherCard extends Component {
     render() {
         return (
             <div className="card">
-                <h3>Title</h3>
-                <p>Text</p>
+                <h3>Sol {this.props.data.sol}</h3>
+                <hr></hr>
+                <p>{this.props.data.temp} °C</p>
+                <p>{this.props.data.wind} m/s</p>
             </div>
         )
     }

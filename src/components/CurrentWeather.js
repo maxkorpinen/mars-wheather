@@ -1,28 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './CurrentWeather.css';
 
 export default class CurrentWeather extends Component {
 
     render() {
-
-        console.log(this.props.today)
-
-        // const weather_today = this.props.weather_today;
-        // const average_temp = weather_today.AT;
-
-        // //console.log(average_temp);
-        // // console.log(typeof average_temp)
-
-        // // (X°F − 32) × 5/9 = -10°C
-        // function ftoc(f) {
-        //     return (f - 32) * 5 / 9
-        // }
-
-        //const average_temperature = ftoc(weather_today.AT.av)
-
         return (
-            <div>
-                <h3>Today</h3>
-                <p>Average temperature: {this.props.today.average_temp}</p>
+            <div className="currentcard">
+                <h2>Sol {this.props.sol}</h2>
+                <p>{this.props.date}</p>
+                <p>Latest Observation</p>
+                <hr></hr>
+                <p>Avg. temperature: {this.props.today.temp_avg} °C</p>
+                <p>Max. temperature: {this.props.today.temp_max} °C</p>
+                <p>Min. temperature: {this.props.today.temp_min} °C</p>
+                <p>Avg. wind speed: {this.props.today.wind_avg} m/s</p>
+                <p>Max. wind speed: {this.props.today.wind_max} m/s</p>
+                <p>Min. wind speed: {this.props.today.wind_min} m/s</p>
             </div>
         )
     }
