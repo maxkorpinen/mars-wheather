@@ -23,11 +23,16 @@ function rounded(x) {
   return Math.round(x * 10) / 10
 }
 
+// reloading the page
+function reloadPage() {
+  window.location.reload();
+}
+
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sol: 'loading...',
+      sol: '...',
       date: '...',
       background: [],
       weather: {},
@@ -74,10 +79,13 @@ export default class App extends Component {
           wind: ''
         }
       ]
-    }
+    };
   }
 
   componentDidMount() {
+
+    // reloading the page every 10 minutes
+    setInterval(function () { reloadPage(); }, 10 * 60000);
 
     axios.get(`https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`)
       .then(res => {
